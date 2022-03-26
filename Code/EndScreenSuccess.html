@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>The Decaying Tunnels</title>
+    <link href="css/wireframe.css" rel="stylesheet" type="text/css"/>
+    <script src= "js/resize.js" "text/javascript">
+    </script>
+</head>
+<body onload="loadFromSession();">
+    <script>
+    function receive() {      
+        //all puzzles completed so receive all variables
+        var timer1 = sessionStorage.getItem('timer1');
+        var NoOfWrong1 = sessionStorage.getItem('NoOfWrong1');
+        var livesused = sessionStorage.getItem('livesused');
+        var timer2 = sessionStorage.getItem('timer2');
+        var NoOfWrong2 = sessionStorage.getItem('NoOfWrong2');
+        //make table, rows and cells
+        var table = document.getElementById("resultsTable");
+        var timer1row = table.insertRow(0);
+        var NoOfWrong1row = table.insertRow(1);
+        var livesusedrow = table.insertRow(2);
+        var timer2row = table.insertRow(3);
+        var NoOfWrong2row = table.insertRow(4);
+
+        var timer1cell1 = timer1row.insertCell(0);
+        var timer1cell2 = timer1row.insertCell(1);
+        var NoOfWrong1cell1 = NoOfWrong1row.insertCell(0);
+        var NoOfWrong1cell2 = NoOfWrong1row.insertCell(1);
+        var livesusedcell1 = livesusedrow.insertCell(0);
+        var livesusedcell2 = livesusedrow.insertCell(1);
+        var timer2cell1 = timer2row.insertCell(0);
+        var timer2cell2 = timer2row.insertCell(1);
+        var NoOfWrong2cell1 = NoOfWrong2row.insertCell(0);
+        var NoOfWrong2cell2 = NoOfWrong2row.insertCell(1);
+
+        //fill with correct data
+        timer1cell1.innerHTML = "Time left to open door: ";
+        timer1cell2.innerHTML = timer1;
+        NoOfWrong1cell1.innerHTML = "Number of wrong attempts at door: ";
+        NoOfWrong1cell2.innerHTML = NoOfWrong1;
+        livesusedcell1.innerHTML = "Number of lives remaining for the spiders: "
+        livesusedcell2.innerHTML = livesused;
+        timer2cell1.innerHTML = "Time left to create potion: ";
+        timer2cell2.innerHTML = timer2;
+        NoOfWrong2cell1.innerHTML = "Number of wrong attempts at creating the potion: ";
+        NoOfWrong2cell2.innerHTML = NoOfWrong2;
+
+        document.getElementById("statsbutton").style.visibility = "hidden";
+        
+    }
+    </script>
+    <div id="mainWrapper">
+    <div id="wrapper">
+    <div id="navbar">
+        <div id="options">
+            <a href="#" onclick="clearSession()">Clear Font Size</a>
+            <a onclick="setSize('small');" href="#" style="font-size: 75%;">Small</a>
+            <a onclick="setSize('normal');" href="#" style="font-size: 100%;">Normal</a>
+            <a onclick="setSize('large');" href="#" style="font-size: 150%;">Large</a>         
+        </div>
+        <br>
+    </div>
+        <div class="content normal">
+        <div class="title">THE DECAYING TUNNELS</div>
+        <div class="subtitle">You have escaped<br><br> </div>
+        
+        <div class="col1">
+            <img style="width:90%;" src="images/tunnel.png" alt="Image of Success"/>          
+        </div>
+        <div class="col2" class="content normal">
+            <div class="col2Text">
+            <span style="color:limegreen">YOU WON<br>You escaped the mine</span><br><br>
+            <audio controls autoplay>
+            <source src="audio/cave%20themeb4.ogg" type="audio/ogg" hidden="true">
+            </audio>
+            <table id="resultsTable" class="center">                
+            </table>
+            <br><div>Well done</div>         
+            <br><button onclick="receive();" id="statsbutton" class="button">Show your stats</button><br><br>
+            <a href="MainRoom.html" class="button">               
+                Return to Menu            
+            </a> <br><br>
+             
+            </div>
+            
+        </div>
+        
+    </div>
+    <br>
+    </div>
+    <br>
+    </div>
+    
+</body>
+</html>

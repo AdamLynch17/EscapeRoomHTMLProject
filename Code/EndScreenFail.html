@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>The Decaying Tunnels</title>
+    <link href="css/wireframe.css" rel="stylesheet" type="text/css"/>
+    <script src= "js/resize.js" "text/javascript">
+    </script>
+</head>
+<body onload="loadFromSession();">
+
+    <script>
+    function receive(){
+        //get all variables for door and create table
+        var timer1 = sessionStorage.getItem('timer1');
+        var NoOfWrong1 = sessionStorage.getItem('NoOfWrong1');
+        var MethodOfDeath = sessionStorage.getItem('MethodOfDeath');
+        var table = document.getElementById("resultsTable");
+        var timer1row = table.insertRow(0);
+        var NoOfWrong1row = table.insertRow(1);
+        //insert values into table
+        var timer1cell1 = timer1row.insertCell(0);
+        var timer1cell2 = timer1row.insertCell(1);
+        var NoOfWrong1cell1 = NoOfWrong1row.insertCell(0);
+        var NoOfWrong1cell2 = NoOfWrong1row.insertCell(1);
+        timer1cell1.innerHTML = "Time left to open door: ";
+        timer1cell2.innerHTML = timer1;
+        NoOfWrong1cell1.innerHTML = "Number of wrong attempts at door: ";
+        NoOfWrong1cell2.innerHTML = NoOfWrong1;
+
+        //determine where the player died and obtain appropriate variables
+        if (MethodOfDeath == "Potion") {
+            var livesused = sessionStorage.getItem('livesused');
+            var timer3 = sessionStorage.getItem('timer3');
+            var livesusedrow = table.insertRow(2);
+            var timer3row = table.insertRow(3);
+            var livesusedcell1 = livesusedrow.insertCell(0);
+            var livesusedcell2 = livesusedrow.insertCell(1);
+            var timer3cell1 = timer3row.insertCell(0);
+            var timer3cell2 = timer3row.insertCell(1);
+            //insert into table
+            livesusedcell1.innerHTML = "Lives left against the spiders: ";
+            livesusedcell2.innerHTML = livesused;
+            timer3cell1.innerHTML = "Time left to escape the spiders: ";
+            timer3cell2.innerHTML = timer3;
+
+            //get potion variables
+            var timer2 = sessionStorage.getItem('timer2');
+            var NoOfWrong2 = sessionStorage.getItem('NoOfWrong2');
+            var timer2row = table.insertRow(4);
+            var NoOfWrong2row = table.insertRow(5);
+            var timer2cell1 = timer2row.insertCell(0);
+            var timer2cell2 = timer2row.insertCell(1);
+            var NoOfWrong2cell1 = NoOfWrong2row.insertCell(0);
+            var NoOfWrong2cell2 = NoOfWrong2row.insertCell(1);
+            //insert into table
+            timer2cell1.innerHTML = "Time left to create potion: "
+            timer2cell2.innerHTML = timer2
+            NoOfWrong2cell1.innerHTML = "Number of wrong potions tried: "
+            NoOfWrong2cell2.innerHTML = NoOfWrong2;
+        } 
+        else if (MethodOfDeath == "Spider") {
+            //get spder variables
+            var livesused = sessionStorage.getItem('livesused');
+            var timer3 = sessionStorage.getItem('timer3');
+            var livesusedrow = table.insertRow(2);
+            var timer3row = table.insertRow(3);
+            var livesusedcell1 = livesusedrow.insertCell(0);
+            var livesusedcell2 = livesusedrow.insertCell(1);
+            var timer3cell1 = timer3row.insertCell(0);
+            var timer3cell2 = timer3row.insertCell(1);
+            //insert into table
+            livesusedcell1.innerHTML = "Lives left against the spiders: ";
+            livesusedcell2.innerHTML = livesused;
+            timer3cell1.innerHTML = "Time left to escape the spiders: ";
+            timer3cell2.innerHTML = timer3;
+        }
+        else if (MethodOfDeath == "Door") {
+            
+        }
+
+        document.getElementById("statsbutton").style.visibility = "hidden";
+    }
+    </script>
+    <div id="mainWrapper">
+    <div id="wrapper">
+    <div id="navbar">
+        <div id="options">
+            <a href="#" onclick="clearSession()">Clear Font Size</a>
+            <a onclick="setSize('small');" href="#" style="font-size: 75%;">Small</a>
+            <a onclick="setSize('normal');" href="#" style="font-size: 100%;">Normal</a>
+            <a onclick="setSize('large');" href="#" style="font-size: 150%;">Large</a>         
+        </div>
+        <br>
+    </div>
+        <div class="content normal">
+        <div class="title">THE DECAYING TUNNELS</div>
+        <div class="subtitle">You have failed to escape<br><br> </div>
+        
+        <div class="col1">
+            <img style="width:90%;" src="images/death.png" alt="Image of Puzzle Loss (no image yet - puzzles not finalised)"/>          
+        </div>
+        <div class="col2" class="content normal">
+            <div class="col2Text">
+            <span style="color:red">YOU FAILED<br>You died during the Third puzzle</span><br><br>
+            <table id="resultsTable" class="center">                
+            </table>
+            <br><button onclick="receive();" id="statsbutton" class="button">Show your stats</button><br>
+            <br>Better luck next time...
+            <audio controls autoplay>
+            <source src="audio/cave%20themeb4.ogg" type="audio/ogg" hidden="true">
+            </audio>
+            <br><br>
+            <a href="MainRoom.html" class="button">               
+                Return to Menu            
+            </a>            
+            <br><br>
+            </div>
+            
+        </div>
+        
+    </div>
+    <br>
+    </div>
+    <br>
+    </div>
+    
+</body>
+</html>

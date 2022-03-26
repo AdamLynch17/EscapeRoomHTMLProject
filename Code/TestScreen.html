@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test Screen</title>
+    <link href="wireframe.css" rel="stylesheet" type="text/css"/>
+    <script> //src= "resize.js" "text/javascript">
+        var timer=40;
+        var te;
+        window.addEventListener('load', function() { te = setInterval(countdown, 1000); });
+        function send() {                
+            var color = document.getElementById('color').value;
+            var timer = document.getElementById('timer').value;
+            sessionStorage.setItem('timer', timer);
+            sessionStorage.setItem('color', color);
+            alert(timer);
+            alert(te);
+            window.open('TestScreen3.html','_self');                
+        }                             
+
+        function countdown() {
+            if (timer >=0) {                    
+                document.getElementById('timer').innerHTML = timer;
+                timer--;                   
+            } else {
+                clearInterval(te);
+                window.open('TestScreen3.html','_self');
+            }           
+        }
+    </script>
+</head>
+<body onload="loadFromSession();">
+    <div id="mainWrapper">
+    <div id="wrapper">
+    <div id="navbar">
+        <div id="options">
+            <a onclick="setSize('small');" href="#" style="font-size: 75%;">Small</a>
+            <a onclick="setSize('normal');" href="#" style="font-size: 100%;">Normal</a>
+            <a onclick="setSize('large');" href="#" style="font-size: 150%;">Large</a>
+            <a href="#" onclick="clearSession()">Clear Font Size</a>
+        </div>
+        <br>
+    </div>
+        <div class="content normal">
+        <div class="title">DECAYING TUNNELS</div>
+        <div class="subtitle">Information about escape room short sentence that says mines or tunnel or something<br> </div>
+        
+        <div class="col1">
+            <img style="width:90%;" src="Tunnel.png" alt="Image of tunnel"/>          
+        </div>
+        <div class="col2" class="content normal">
+            <div class="col2Text">
+            Game Text/Stats here <br>
+            More Information etc <br>
+            Text text text text <br>
+            Longer Text text text Long text text long text text
+            <br>More Text Text text<br>text text text text
+            <br>Text Text text text Text Text <br>Text text Text Text text<br>Text Text Text text text <br>
+            Text More Text More Text <br><br>More Text <br><br>Attempt to pass variable to TestScreen2 <br>
+            <h1>Colour Countdown: <span id="timer">40</span></h1>  
+            <br><br>More Text More Text
+            <select id="color">
+                <option value="lightcoral">Light Red</option>
+                <option value="lightgreen">Light Green</option>
+                <option value="lightblue">Light Blue</option>
+            </select>
+            <br><br><br>
+            <a href="TestScreen3.html" class="button" >               
+                Go To Other Page            
+            </a> 
+            <br><br>          
+            <a onclick="send();" class="button">Go!
+            </a>
+            <br>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+</html>

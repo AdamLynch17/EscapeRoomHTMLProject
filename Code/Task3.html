@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+       <!--<link rel="stylesheet" href="format.css">-->
+        <link rel="stylesheet" href="css/wireframe.css">
+        <title>The Decaying Tunnels</title>
+        <!--<script src="javascript.js"></script>-->
+        <script src="js/resize.js"></script>
+    </head>
+    
+    <body onload="loadFromSession();">
+     
+    <script>   
+    var timer = 29;
+    var NoOfWrong = 0;
+    var te;      
+    var MethodOfDeath = "Potion";
+    window.addEventListener('load', function() { te = setInterval(countdown, 1000); });
+    
+    function countdown() {
+    if (timer >=0) {
+         document.getElementById('timer').innerHTML = timer;
+         timer--;                   
+    } else {                    
+         clearInterval(te);
+         sessionStorage.setItem('MethodOfDeath', MethodOfDeath);
+         timer +=1;
+         sessionStorage.setItem('timer2', timer);
+         sessionStorage.setItem('NoOfWrong2', NoOfWrong);
+         document.getElementById('timer').innerHTML = "Time's Up!";                   
+         window.location.href= "EndScreenFail.html";                  
+         }           
+    }
+    function stopFunction() {
+        clearTimeout(te);
+    }
+    function checkAnswer() {
+    var blue = document.getElementById('blueCheckBox');
+    var pink = document.getElementById('pinkCheckBox');
+    var orange = document.getElementById('orangeCheckBox');
+    var green = document.getElementById('greenCheckBox');
+    
+    if ( (blue.checked == true) && (pink.checked == true) && (orange.checked == false) && (green.checked == false) )  {
+        clearTimeout(te);
+        timer += 1;
+        sessionStorage.setItem('timer2', timer);
+        sessionStorage.setItem('NoOfWrong2', NoOfWrong);
+        document.getElementById('text').innerHTML = "Congrats! You passed the task"; 
+        setTimeout(() => window.location.href = "EndScreenSuccess.html", 2000); 
+    } else {
+        NoOfWrong += 1;
+        document.getElementById('text').innerHTML = "Wrong mixture, try again!";
+    }
+}
+
+       
+    function largeBtn() {   
+    document.getElementById('text').style.position = "absolute";   
+    document.getElementById('text').style.right = "500px";
+    document.getElementById('text').style.top = "720px";
+    }
+        
+    function smallBtn() {
+    document.getElementById('text').style.position = "absolute";   
+    document.getElementById('text').style.right = "600px";
+    document.getElementById('text').style.top = "400px";
+    }
+        
+    function normalBtn() {
+    document.getElementById('text').style.position = "absolute";   
+    document.getElementById('text').style.right = "540px";
+    document.getElementById('text').style.top = "480px";  
+    }
+        
+    </script>
+    
+    <div id="mainWrapper">
+    <div id="wrapper">
+    <div id="navbar">
+        <div id="options">
+            <a href="#" onclick="clearSession()">Clear Font Size</a>
+            <a onclick="setSize('small'); smallBtn();" href="#" style="font-size: 75%;">Small</a>
+            <a onclick="setSize('normal'); normalBtn();" href="#" style="font-size: 100%;">Normal</a>
+            <a onclick="setSize('large'); largeBtn();" href="#" style="font-size: 150%;">Large</a>    
+        </div>
+        <br>
+    </div>
+    <audio controls autoplay>
+            <source src="audio/cave%20themeb4.ogg" type="audio/ogg" hidden="true">
+            </audio>
+    <div class="normal content">
+        <!-- title "The Decaying Tunnels" -->
+        <div class="title">THE DECAYING TUNNELS</div>
+        <div class="subtitle">Mix two potions together to cure yourself!</div>
+        <br>
+        <!-- witch image -->
+        <div>  <!-- class="center" TAKEN OUT -->
+            <img class="witchImage col1" src="images/witch2.jpg" alt="Image of a Witch">
+         
+ 
+        <table class="table col1">  <!-- col2Text TAKEN OUT -->   <!-- style=left=... need added??? -->
+            <th colspan="2">
+                <p style="text-align: center;">Time Left: <span class="content" id="timer">30</span></p>
+            </th>
+            <tr>
+                <td style="text-align:center"><img src="images/bluePotion.png" id="bluePotion" alt="Potion of Strength" height:70 width=70></td>
+                <td style="text-align:center"><img src="images/orangePotion.png" id="orangePotion" alt="Potion of Invisibility" height:70 width=70></td>
+            </tr>    
+            <tr>
+                <td style="text-align:center"><input id="blueCheckBox" type="checkbox" onclick="blueImgChange()"><br>Potion of <br>Strength<br></td>
+                
+                <td style="text-align:center"><input id="orangeCheckBox" type="checkbox" onclick="orangeImgChange()"><br>Potion of <br>Invisibility<br></td>
+            </tr>
+            <tr>
+                <td style="text-align:center"><img src="images/pinkPotion.png" id="pinkPotion" alt="Potion of Healing" height:70 width=70></td>
+                
+                <td style="text-align:center"><img src="images/greenPotion.png" id="greenPotion" alt="Potion of Poison" height:70 width=70></td>
+            </tr>
+            <tr>
+                <td style="text-align:center"><input id="pinkCheckBox" type="checkbox" onclick="pinkImgChange()"><br>Potion of <br>Healing<br></td>
+                
+                <td style="text-align:center"><input id="greenCheckBox" type="checkbox" onclick="greenImgChange()"><br>Potion of   <br> Poison<br></td>
+            </tr>
+        </table>
+
+        <!-- paragraph explaining task -->
+        <p class="col2Text col2 paragraph"><br>Oh no! You’ve been poisoned by a witch. You only have a limited amount of time until the poison kills you. There’s four potions in front of you. You need to mix two of them together to create a potion that will heal you from the poison.<br><br>
+        Tick two boxes to select which two potions you want to mix.
+            <br>Hurry, before your time runs out!<br><br>
+        <input id="answerButton" class="button positionButton" type="button" onclick="checkAnswer()" value="Check Answer"></input><br><br>       </p> 
+        <div>
+            <br><br><br><br><br><br><br><br>
+            <p id="text" class="normal content" style="position: absolute; right: 540px; top: 480px;">Waiting on Answer...</p>
+            <br><br><br><br><br><br><br><br><br><br>
+        </div>     
+        <br>     
+        </div>
+        <br>
+        </div>
+        <br>
+        </div>
+        <br>
+        </div>
+        <br>
+        </div>
+        <br>
+    </body>
+</html>

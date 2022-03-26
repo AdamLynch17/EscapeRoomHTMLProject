@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>The Decaying Tunnels</title>
+    <link href="css/wireframe.css" rel="stylesheet" type="text/css"/>
+    <script src= "js/resize.js" "text/javascript"></script>
+    <script src= "js/door.js" "text/javascript"></script>
+    </head>
+
+
+<body onload="loadFromSession();">
+    <div id="mainWrapper">
+    <div id="wrapper">
+    <div id="navbar">
+        <div id="options">
+            <a href="#" onclick="clearSession()">Clear Font Size</a>
+            <a onclick="setSize('small');" href="#" style="font-size: 75%;">Small</a>
+            <a onclick="setSize('normal');" href="#" style="font-size: 100%;">Normal</a>
+            <a onclick="setSize('large');" href="#" style="font-size: 150%;">Large</a>         
+        </div>
+        <br>
+            <audio controls autoplay>
+            <source src="audio/cave%20themeb4.ogg" type="audio/ogg" hidden="true">
+            </audio>
+    </div>
+         
+            <table class="table">
+            <th colspan="2">
+                <p style="text-align: center;">Time Left: <span id="countdown"></span>                      
+            </th>
+            </table>
+        
+        
+        <div class="title">THE DECAYING TUNNELS</div>
+        
+        <div class="col1">
+            <img style="width:90%;" src="images/lockedDoor.png" alt="Image of locked door"
+             usemap="#image-map"/>   
+            
+             <map name="image-map">
+                 <area shape="rect" coords="140,123,3061,2842" onclick="popUp1();">
+              
+            </map>            
+        </div>
+           
+       <div class="normal content">
+        <div class="col2">
+            <div class="col2Text">
+                <br>As the clock is ticking, enter your 3 codes by clicking the door and hopefully get the correct key to open the unlock the door and escape<br>
+                
+                <area onclick="popUp1();"> 
+                <p id="demo"></p>
+                <area onclick="popUp1();"> 
+                <p id="unlock"></p>
+                
+                 <a href="MainRoom.html" class="button">Previous Page </a>
+           <br><br>
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+    
+</html>

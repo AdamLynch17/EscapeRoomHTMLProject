@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test Screen 3</title>
+    
+    <script>
+    function receive() {
+        var sendtimer = sessionStorage.getItem('sendtimer');
+        var color = sessionStorage.getItem('color');
+                
+        alert(sendtimer);
+        alert(color);
+                
+        document.body.innerHTML += '<p>Welcome ' + sendtimer + '</p>';
+        document.body.style.backgroundColor = color;
+    }
+    </script>
+</head>
+<body onload="receive();">
+    Oh shit
+    <a href="TestScreen.html">Go</a>
+</body>
+</html>

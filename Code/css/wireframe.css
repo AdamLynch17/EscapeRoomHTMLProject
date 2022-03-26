@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+* {	
+    box-sizing: border-box;
+    color: white;
+    background-color: #363945;
+    font-family: 'DotGothic16', sans-serif;
+}
+
+#mainWrapper {
+    overflow: auto;
+    background-color:#4A310E;
+    margin:auto;
+    width:98%;
+    height:100%;
+    background-image: url(../images/bricks.jpg);
+}
+
+audio { 
+    display:none;
+}
+
+#wrapper {
+    overflow: auto;
+    background-color: #6D6D6D;
+    margin:auto;
+    width:88%;
+    height:90%;
+}
+
+#options {
+    width:auto;
+    float:left;
+}
+
+#navbar {
+    background-color:#A6783A;
+    height:36px;
+}
+
+a:hover {
+    background-color:#A6783A;
+}
+
+.title {
+    font-family: 'Staatliches', cursive;
+    text-align: center;
+    background-color: #6D6D6D;
+    font-size: 3em;
+    height:auto;	
+}
+
+.subtitle {
+    text-align: center;
+    height:auto;
+    background-color: #6D6D6D;
+}
+
+.col1 {   
+    width:60%;  
+    height:50%;
+    text-align: center;
+    float:left;
+    background-color: #6D6D6D;
+    padding: 0px 0px 0px 0px;
+}
+
+.col2 {
+    width: 35%;   
+    padding: 10px 0px 10px 0px;
+    height:70%;	 
+    float:left;
+    background-color:#6D6D6D;
+}
+
+.col2Text {
+    text-align: center;   
+    border:4px solid #A6783A;
+    background-color: #393939;
+    border-radius: 25px;
+}
+
+#minecart,#shovel,#pickaxe,#torch,#skull {
+    text-align: center; 
+    color: white;
+    background-color: #393939;
+}
+
+#demo {
+    text-align: center;   
+    font-family: 'DotGothic16', sans-serif;
+    color: white;
+    background-color: #393939;
+}
+
+.button {
+    border:4px solid #A6783A;
+    height:auto;
+    text-align: center;
+    overflow: auto;
+    font-size: 1.2em;
+}
+
+.button:hover {
+    border:4px solid white;
+    background-color:#A6783A;
+}
+
+img {
+    border: 4px solid #A6783A;
+}
+
+.small {
+    font-size: 70%;
+}
+
+.normal {
+    font-size: 100%;
+}
+
+.large {
+    font-size: 140%;
+}
+
+
+.witchImage {
+    margin: auto;
+    width: 35%;
+    height: 35%;
+}
+
+.paragraph {
+    float:right;
+    width: 35%;
+    margin: auto;
+}
+
+.right { 
+    float: right;
+}
+
+.center {
+    float:center;
+}
+
+.left {
+    float:left;
+}
+
+.center {
+    width:73%;
+    margin:auto;
+    overflow: auto;
+}
+
+.table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 280px;
+    position: inherit;
+}
+
+.table {
+	font-size:80%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color:black;
+	border-spacing: 0px;
+	empty-cells: hide;
+	border-radius: 5px;
+}
+
+.td {
+	width:80%;	
+	border:2px solid white;
+	background-color:dark-grey;
+	margin:5px;
+}
+

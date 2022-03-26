@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>The Decaying Tunnels</title>
+    <link href="css/wireframe.css" rel="stylesheet" type="text/css"/>
+    <script src= "js/resize.js" "text/javascript"></script>
+    <!--<script src= "timer1.js" "text/javascript"></script>-->
+   
+</head>
+<body onload="loadFromSession();">
+    <div id="mainWrapper">
+    <div id="wrapper">
+    <div id="navbar">
+        <div id="options">
+            <a href="#" onclick="clearSession()">Clear Font Size</a>
+            <a onclick="setSize('small');" href="#" style="font-size: 75%;">Small</a>
+            <a onclick="setSize('normal');" href="#" style="font-size: 100%;">Normal</a>
+            <a onclick="setSize('large');" href="#" style="font-size: 150%;">Large</a>         
+        </div>
+        <br>
+    </div>
+                
+        <div id="countdown1"></div>
+        
+        <div class="content normal">
+        <div class="title">THE DECAYING TUNNELS</div>
+            
+            <audio controls autoplay>
+            <source src="audio/cave%20themeb4.ogg" type="audio/ogg" hidden="true">
+            </audio>
+            
+
+        <div class="col1">
+            <img style="width:90%;" src="images/underground-city-64836_640%20(1).png" alt="Image of underground room with various items" usemap="#room-map"/>         
+ 
+            <map id="room-map" map name="room-map">
+            <area shape="rect"  coords="109,222,221,341" onclick="pickaxeClicked();" >
+            <area shape="rect" coords="17,353,182,450" onclick="minecartClicked();">
+            <area shape="rect" coords="245,375,487,470" onclick="shovelClicked();">
+            <area shape="rect" coords="470,332,600,390" onclick="skullClicked();">
+            <area shape="rect" coords="570,160,650,220" onclick="torchClicked();">
+    
+            </map>
+        </div>
+        <div class="col2">
+            <div class="col2Text">
+             <br>To escape this dark, dingy, miserable room, there are multiple codes which are hidden within this creepy area<br>
+                <br> Make sure you read them correctly as if u dont you will end up with 0 chance to escape<br>
+            <br>
+            <a href="LockedDoor.html" class="button">Next Page </a><br><br>
+            </div>
+            
+            <div class="col2">
+            <div class="col2Text">
+                <a onclick="shovelClicked()"></a> 
+                <p id="shovel" p></p>
+            </div>
+            </div>
+            
+            <div class="col2">
+            <div class="col2Text">
+                <a onclick="pickaxeClicked()"></a>
+                 <p id="pickaxe"></p>
+            </div>
+            </div>
+            
+            <div class="col2">
+            <div class="col2Text">
+                <a onclick="minecartClicked()"></a> 
+                <p id="minecart"></p>
+            </div>
+            </div>
+            
+            <div class="col2">
+            <div class="col2Text">
+                <a onclick="skullClicked()"></a> 
+                <p id="skull"></p>
+            </div>
+            </div>
+                
+            <div class="col2">
+            <div class="col2Text">
+                 <a onclick="torchClicked()"></a> 
+                <p id="torch"></p>
+            </div>
+            </div>
+            <br>
+            
+        </div>
+        </div>
+    </div>
+    <br>
+    </div>
+</body>
+</html>
